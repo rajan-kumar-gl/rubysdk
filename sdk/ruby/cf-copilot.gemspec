@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'copilot/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'cf-copilot-copy'
+  spec.name          = 'cf-copilot'
   spec.version       = Cloudfoundry::Copilot::VERSION
   spec.authors       = ['Cloud Foundry Routing Team']
   spec.email         = ['cf-routing@pivotal.io']

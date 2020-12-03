@@ -63,10 +63,10 @@ module Cloudfoundry
 
       def upsert_capi_diego_process_association(capi_process_guid:, diego_process_guids:)
         request = Api::UpsertCapiDiegoProcessAssociationRequest.new(
-            capi_diego_process_association: {
-                capi_process_guid: capi_process_guid,
-                diego_process_guids: diego_process_guids
-            }
+          capi_diego_process_association: {
+            capi_process_guid: capi_process_guid,
+            diego_process_guids: diego_process_guids
+          }
         )
 
         service.upsert_capi_diego_process_association(request)
@@ -76,7 +76,7 @@ module Cloudfoundry
 
       def delete_capi_diego_process_association(capi_process_guid:)
         request = Api::DeleteCapiDiegoProcessAssociationRequest.new(
-            capi_process_guid: capi_process_guid
+          capi_process_guid: capi_process_guid
         )
         service.delete_capi_diego_process_association(request)
       rescue GRPC::BadStatus => e
@@ -93,9 +93,9 @@ module Cloudfoundry
         def each
           return enum_for(:each) unless block_given?
           request = Api::BulkSyncRequest.new(
-              routes: @routes,
-              route_mappings: @route_mappings,
-              capi_diego_process_associations: @capi_diego_process_associations
+            routes: @routes,
+            route_mappings: @route_mappings,
+            capi_diego_process_associations: @capi_diego_process_associations
           )
 
           all_bytes = request.to_proto
@@ -126,8 +126,8 @@ module Cloudfoundry
 
       def compression_options
         @compression_options ||= GRPC::Core::CompressionOptions.new(
-            default_algorithm: :gzip,
-            default_level: :low
+          default_algorithm: :gzip,
+          default_level: :low
         )
       end
 
